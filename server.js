@@ -18,7 +18,7 @@ const pool = new Pool ({
     password: 'f',
     host: 'localhost',
     port: 5432,
-    database: 'scratchdb'
+    database: 'exercise'
 });
 
 //create listening port
@@ -26,21 +26,21 @@ app.listen(PORT, () => {
     console.log(`${PORT} check`)
 })
 
-//get all
-app.get('/scratch', async (request, response) => {
-    try {
-        const showAll = await pool.query('SELECT * FROM scratch');
-        response.status(200).send(showAll.rows)
-    } catch (error) {
-        response.send(error.message);
-    }
-})
+// //get all
+// app.get('/exercise', async (request, response) => {
+//     try {
+//         const showAll = await pool.query('SELECT * FROM exercise');
+//         response.status(200).send(showAll.rows)
+//     } catch (error) {
+//         response.send(error.message);
+//     }
+// })
 
 // //get one
-// app.get('/scratch/:id', async (request, response) => {
+// app.get('/exercise/:id', async (request, response) => {
 //     try {
 //         const {id} = request.params;
-//         const {rows} = await pool.query('SELECT * FROM scratch WHERE id = $1', [id]);
+//         const {rows} = await pool.query('SELECT * FROM exercise WHERE id = $1', [id]);
 //         response.status(200).send(rows);
 //     } catch (error) {
 //         response.send(error.message);
@@ -49,10 +49,10 @@ app.get('/scratch', async (request, response) => {
 
 
 // //delete one
-// app.delete('/scratch/:id', async (request, response) => {
+// app.delete('/exercise/:id', async (request, response) => {
 //     try {
 //         const {id} = request.params;
-//         const {rows} = await pool.query('DELETE FROM scratch WHERE id = $1', [id]);
+//         const {rows} = await pool.query('DELETE FROM exercise WHERE id = $1', [id]);
 //         response.status(200).send(rows);
 //     } catch (error) {
 //         response.send(error.message);
@@ -60,12 +60,12 @@ app.get('/scratch', async (request, response) => {
 // })
 
 // //create one
-// app.post('/scratch', async (request, response) => {
+// app.post('/exercise', async (request, response) => {
 //     try {
 //         const {id} = request.params;
 //         const {name, quantity, date_made, rating} = request.body;
-//         const {rows} = await pool.query('INSERT INTO scratch (name, quantity, date_made, rating) VALUES ($1, $2, $3, $4)', [name, quantity, date_made, rating]);
-//         const showOne = await pool.query('SELECT * FROM scratch WHERE id = $1', [id]);
+//         const {rows} = await pool.query('INSERT INTO exercise (name, quantity, date_made, rating) VALUES ($1, $2, $3, $4)', [name, quantity, date_made, rating]);
+//         const showOne = await pool.query('SELECT * FROM exercise WHERE id = $1', [id]);
 //         //console.log(rows)
 //         response.status(200).send(showOne.rows);
 //     } catch (error) {
@@ -74,12 +74,12 @@ app.get('/scratch', async (request, response) => {
 // });
 
 // //patch one
-// app.patch('/scratch/:id', async (request, response) => {
+// app.patch('/exercise/:id', async (request, response) => {
 //     try {
 //         const {id} = request.params;
 //         const {name, quantity, date_made, rating} = request.body;
-//         const {rows} = await pool.query('UPDATE scratch SET name = $1, quantity = $2, date_made = $3, rating = $4 WHERE id = $5', [name, quantity, date_made, rating, id]);
-//         const showOne = await pool.query('SELECT * FROM scratch WHERE id = $1', [id]);
+//         const {rows} = await pool.query('UPDATE exercise SET name = $1, quantity = $2, date_made = $3, rating = $4 WHERE id = $5', [name, quantity, date_made, rating, id]);
+//         const showOne = await pool.query('SELECT * FROM exercise WHERE id = $1', [id]);
 //         //console.log(rows)
 //         response.status(200).send(showOne.rows);
 //     } catch (error) {
