@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS
+DROP TABLE IF EXISTS users;
 CREATE TABLE users (
     user_id serial,
     f_name varchar(15),
     l_name varchar(20),
     height_inches integer,
     weight_lbs integer,
+    age integer
 );
 
 INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ('Tom', 'Powers', 73, 220, 36);
