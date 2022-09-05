@@ -7,10 +7,10 @@ const app = express();
 
 //create middlewares
 app.use(express.json());
-//app.use(express.static('public'))
+app.use(express.static('public'))
 
 //create PORT variable
-const PORT = 3000;
+const PORT = 3003;
 
 //create Pool variable
 const pool = new Pool ({
@@ -21,20 +21,16 @@ const pool = new Pool ({
     database: 'exercise'
 });
 
-//create listening port
-app.listen(PORT, () => {
-    console.log(`${PORT} check`)
-})
-
-// //get all
-// app.get('/exercise', async (request, response) => {
+//get all
+app.get('/exercise', (request, response) => {
+    response.send('get all check')
 //     try {
 //         const showAll = await pool.query('SELECT * FROM exercise');
 //         response.status(200).send(showAll.rows)
 //     } catch (error) {
 //         response.send(error.message);
 //     }
-// })
+})
 
 // //get one
 // app.get('/exercise/:id', async (request, response) => {
@@ -86,3 +82,8 @@ app.listen(PORT, () => {
 //         response.send(error.message);
 //     }
 // })
+
+//create listening port
+app.listen(PORT, () => {
+    console.log(`${PORT} check`)
+})
