@@ -177,7 +177,7 @@ btn3.value = 'Test';
 btn3.addEventListener('click', async (e) => {
     const data = await fetch('http://localhost:3003/users');
     const json = await data.json()
-    console.log(json[0])
+    console.log(json)
 })
 
 ///////////////////Testing////////////////////////////
