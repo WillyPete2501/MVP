@@ -38,7 +38,7 @@ app.get('/users', async (request, response) => {
 app.get('/users/:id', async (request, response) => {
     try {
         const {id} = request.params;
-        const {rows} = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
+        const {rows} = await pool.query('SELECT * FROM users WHERE log_id = $1', [id]);
         response.status(200).send(rows);
     } catch (error) {
         response.send(error.message);
@@ -50,7 +50,7 @@ app.get('/users/:id', async (request, response) => {
 app.delete('/users/:id', async (request, response) => {
     try {
         const {id} = request.params;
-        const {rows} = await pool.query('DELETE FROM users WHERE user_id = $1', [id]);
+        const {rows} = await pool.query('DELETE FROM users WHERE log_id = $1', [id]);
         response.status(200).send(rows);
     } catch (error) {
         response.send(error.message);
@@ -61,8 +61,8 @@ app.delete('/users/:id', async (request, response) => {
 app.post('/users', async (request, response) => {
     try {
         const {id} = request.params;
-        const {f_name, l_name, height_inches, weight_lbs, age} = request.body;
-        const {rows} = await pool.query('INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ($1, $2, $3, $4, $5)', [f_name, l_name, height_inches, weight_lbs, age]);
+        const {height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4} = request.body;
+        const {rows} = await pool.query('INSERT INTO users (height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4]);
         response.status(200).send(rows);
     } catch (error) {
         response.send(error.message);
@@ -73,68 +73,9 @@ app.post('/users', async (request, response) => {
 app.patch('/users/:id', async (request, response) => {
     try {
         const {id} = request.params;
-        const {f_name, l_name, height_inches, weight_lbs, age} = request.body;
-        const {rows} = await pool.query('UPDATE users SET height_inches = $1, weight_lbs = $2, age = $3,  WHERE user_id = $6', [f_name, l_name, height_inches, weight_lbs, age, id]);
-        const showOne = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
-        response.status(200).send(showOne.rows);
-    } catch (error) {
-        response.send(error.message);
-    }
-})
-////////////////fitlog///////////////////////////
-//get all
-app.get('/fitlog', async (request, response) => {
-    //response.send('get all check')
-    try {
-        const showAll = await pool.query('SELECT * FROM users');
-        response.status(200).send(showAll.rows)
-    } catch (error) {
-       response.send(error.message);
-    }
-})
-
-//get one
-app.get('/users/:id', async (request, response) => {
-    try {
-        const {id} = request.params;
-        const {rows} = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
-        response.status(200).send(rows);
-    } catch (error) {
-        response.send(error.message);
-    }
-});
-
-
-//delete one
-app.delete('/users/:id', async (request, response) => {
-    try {
-        const {id} = request.params;
-        const {rows} = await pool.query('DELETE FROM users WHERE user_id = $1', [id]);
-        response.status(200).send(rows);
-    } catch (error) {
-        response.send(error.message);
-    }
-})
-
-//create one
-app.post('/users', async (request, response) => {
-    try {
-        const {id} = request.params;
-        const {f_name, l_name, height_inches, weight_lbs, age} = request.body;
-        const {rows} = await pool.query('INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ($1, $2, $3, $4, $5)', [f_name, l_name, height_inches, weight_lbs, age]);
-        response.status(200).send(rows);
-    } catch (error) {
-        response.send(error.message);
-    }
-});
-
-// //patch one
-app.patch('/users/:id', async (request, response) => {
-    try {
-        const {id} = request.params;
-        const {f_name, l_name, height_inches, weight_lbs, age} = request.body;
-        const {rows} = await pool.query('UPDATE users SET f_name = $1, l_name = $2, height_inches = $3, weight_lbs = $4, age = $5 WHERE user_id = $6', [f_name, l_name, height_inches, weight_lbs, age, id]);
-        const showOne = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
+        const {height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4} = request.body;
+        const {rows} = await pool.query('UPDATE users SET height_inches = $1, weight_lbs = $2, age = $3, exercise = $4, metric1 = $5, metric2 =$6, metric3 =$7, metric4 =$8 WHERE log_id = $9', [f_name, l_name, height_inches, weight_lbs, age, id]);
+        const showOne = await pool.query('SELECT * FROM users WHERE log_id = $1', [id]);
         response.status(200).send(showOne.rows);
     } catch (error) {
         response.send(error.message);
