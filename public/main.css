@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .menu_con {
+    background-color: #fb5400;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+   
+  }
+
+  .menu {
+    border: 1px solid rgb(94, 255, 20);
+    display: flex;
+    width: 900px;
+    padding: 1.3em;
+    justify-content: flex-start;
+  }
+
+  .menu2 {
+    border: 1px solid rgb(94, 255, 20);
+    display: flex;
+    width: 900px;
+    padding: 1.3em;
+    justify-content: flex-end;
+  }
+
+  .submission_con {
+    background-color: #fb5400;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+   
+  }
+
+  .userInfoCLS {
+    border: 1px solid rgb(94, 255, 20);
+    display: flex;
+    width: 900px;
+    padding: 1.3em;
+    justify-content: flex-start;
+  }
+
+  .excrDisCLS {
+    border: 1px solid rgb(94, 255, 20);
+    display: flex;
+    width: 900px;
+    padding: 1.3em;
+    justify-content: flex-end;
+  }
+
+  .header_con{
+    align-items: center;
+    background-color: #0e76ed;
+    color: #5995DA;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logoCLS, .socialCLS {
+    align-items: center;
+    border: 1px solid aliceblue;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .img_con {
+    display: flex;
+    justify-content: center;
+  }
+
+  .picGrid {
+    width: 900px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .pic1 {
+    border: 1px solid #fff;
+    width: 300px;
+    height: 300px;
+  }
