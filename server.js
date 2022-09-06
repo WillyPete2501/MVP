@@ -74,7 +74,7 @@ app.patch('/users/:id', async (request, response) => {
     try {
         const {id} = request.params;
         const {f_name, l_name, height_inches, weight_lbs, age} = request.body;
-        const {rows} = await pool.query('UPDATE users SET f_name = $1, l_name = $2, height_inches = $3, weight_lbs = $4, age = $5 WHERE user_id = $6', [f_name, l_name, height_inches, weight_lbs, age, id]);
+        const {rows} = await pool.query('UPDATE users SET height_inches = $1, weight_lbs = $2, age = $3,  WHERE user_id = $6', [f_name, l_name, height_inches, weight_lbs, age, id]);
         const showOne = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
         response.status(200).send(showOne.rows);
     } catch (error) {
