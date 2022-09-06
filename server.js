@@ -9,7 +9,10 @@ const app = express();
 //create use middlewares
 app.use(express.json());
 app.use(express.static('public'))
-app.use(cors({origin: '*'}));
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+}));
 
 //create PORT variable
 const PORT = 3003;
