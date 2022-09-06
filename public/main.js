@@ -33,11 +33,6 @@ header_con.appendChild(logo);
 logo.className = 'logoCLS';
 logo.src = './images/logo.jpg';
 
-const social = document.createElement('img');
-header_con.appendChild(social);
-social.className = 'socialCLS';
-social.src = './images/social-icons.svg';
-
 const img_con = document.createElement('div');
 document.body.appendChild(img_con);
 img_con.className = 'img_con';
@@ -48,27 +43,27 @@ picGrid.className ='picGrid'
 
 const pic1 = document.createElement('img');
 picGrid.appendChild(pic1);
-pic1.className = 'pic1';
+pic1.className = 'picGrid-item';
 pic1.src = './images/one.jpg';
 
 const pic2 = document.createElement('img');
 picGrid.appendChild(pic2);
-pic2.className = 'pic2';
+pic2.className = 'picGrid-item';
 pic2.src = './images/two.jpg';
 
 const pic3 = document.createElement('img');
 picGrid.appendChild(pic3);
-pic3.className = 'pic3';
+pic3.className = 'picGrid-item';
 pic3.src = './images/three.jpg';
 
 const pic4 = document.createElement('img');
 picGrid.appendChild(pic4);
-pic4.className = 'pic4';
+pic4.className = 'picGrid-item';
 pic4.src = './images/four.jpg';
 
 const pic5 = document.createElement('img');
 picGrid.appendChild(pic5);
-pic5.className = 'pic5';
+pic5.className = 'picGrid-item';
 pic5.src = './images/five.jpg';
 //////////////////////////////////////////////////////////////////
 
@@ -112,7 +107,16 @@ btn1.value = 'submit';
 
 function userInfoDisplay() {
     userInfo.innerHTML = fName.value +' '+ lName.value +' '+ height.value +' '+ weight.value +' '+ age.value;
+    storeUserInfo()
 };
+function storeUserInfo() {
+    const userArray = [];
+    const storedUser = fName.value +' '+ lName.value +' '+ height.value +' '+ weight.value +' '+ age.value;
+    console.log(storedUser)
+    userArray.push(storedUser)
+    return userArray
+}
+
 btn1.addEventListener('click', userInfoDisplay);
 ////////////////////////////////////////////////////////////////////
 
@@ -162,8 +166,21 @@ function exerciseDisplay() {
 
 };
 btn2.addEventListener('click', exerciseDisplay);
-//////////////////////////////////////////////////////
+////////////////////Testing///////////////////////////
 
+const btn3 = document.createElement('input');
+submission_con.appendChild(btn3);
+btn3.type = 'button';
+btn3.id = 'btn3ID';
+btn3.value = 'Test';
+
+btn3.addEventListener('click', async (e) => {
+    const data = await fetch('http://localhost:3003/users');
+    const json = await data.json()
+    console.log(json[0])
+})
+
+///////////////////Testing////////////////////////////
 
 
 console.log('main.js check');

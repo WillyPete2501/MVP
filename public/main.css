@@ -16,7 +16,8 @@
   .menu {
     border: 1px solid rgb(94, 255, 20);
     display: flex;
-    width: 900px;
+    flex-wrap: wrap;
+    width: 400px;
     padding: 1.3em;
     justify-content: flex-start;
   }
@@ -24,7 +25,8 @@
   .menu2 {
     border: 1px solid rgb(94, 255, 20);
     display: flex;
-    width: 900px;
+    flex-wrap: wrap;
+    width: 400px;
     padding: 1.3em;
     justify-content: flex-end;
   }
@@ -41,7 +43,7 @@
   .userInfoCLS {
     border: 1px solid rgb(94, 255, 20);
     display: flex;
-    width: 900px;
+    width: 400px;
     padding: 1.3em;
     justify-content: flex-start;
   }
@@ -49,12 +51,28 @@
   .excrDisCLS {
     border: 1px solid rgb(94, 255, 20);
     display: flex;
-    width: 900px;
+    width: 400px;
     padding: 1.3em;
     justify-content: flex-end;
   }
 
   .header_con{
+    background-color: #0e76ed;
+    color: #5995DA;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logoCLS {
+    align-items: center;
+    border: 1px solid aliceblue;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+  }
+
+  .img_con {
     align-items: center;
     background-color: #0e76ed;
     color: #5995DA;
@@ -62,26 +80,17 @@
     justify-content: center;
   }
 
-  .logoCLS, .socialCLS {
-    align-items: center;
-    border: 1px solid aliceblue;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .img_con {
-    display: flex;
-    justify-content: center;
-  }
-
   .picGrid {
-    width: 900px;
+    align-items: center;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 900px;
   }
 
-  .pic1 {
+  .picGrid-item {
     border: 1px solid #fff;
-    width: 300px;
     height: 300px;
+    width: 300px;
   }
