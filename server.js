@@ -74,7 +74,7 @@ app.patch('/users/:id', async (request, response) => {
     try {
         const {id} = request.params;
         const {height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4} = request.body;
-        const {rows} = await pool.query('UPDATE users SET height_inches = $1, weight_lbs = $2, age = $3, exercise = $4, metric1 = $5, metric2 =$6, metric3 =$7, metric4 =$8 WHERE log_id = $9', [f_name, l_name, height_inches, weight_lbs, age, id]);
+        const {rows} = await pool.query('UPDATE users SET height_inches = $1, weight_lbs = $2, age = $3, exercise = $4, metric1 = $5, metric2 =$6, metric3 =$7, metric4 =$8 WHERE log_id = $9', [height_inches, weight_lbs, age, exercise, metric1, metric2, metric3, metric4, id]);
         const showOne = await pool.query('SELECT * FROM users WHERE log_id = $1', [id]);
         response.status(200).send(showOne.rows);
     } catch (error) {
