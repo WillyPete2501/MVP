@@ -8,9 +8,6 @@ CREATE TABLE users (
     age integer
 );
 
-INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ('Tom', 'Powers', 73, 220, 36);
-INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ('Natalee', 'Kotos', 67, 110, 28);
-
 DROP TABLE IF EXISTS fitlog;
 CREATE TABLE fitlog (
     log_id serial,
@@ -19,3 +16,7 @@ CREATE TABLE fitlog (
     metric3 varchar(20),
     metric4 varchar(20)
 );
+
+INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ('Tom', 'Powers', 73, 220, 36);
+INSERT INTO users (f_name, l_name, height_inches, weight_lbs, age) VALUES ('Natalee', 'Kotos', 67, 110, 28);
+
