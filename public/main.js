@@ -125,49 +125,49 @@ userInfo.id = 'userInfoID';
 
 ////////////Header_con/////////////////////////////////
 
-header_con = document.createElement('div');
-document.body.appendChild(header_con);
-header_con.className = 'header_con'
+// header_con = document.createElement('div');
+// document.body.appendChild(header_con);
+// header_con.className = 'header_con'
 
-const logo = document.createElement('img');
-header_con.appendChild(logo);
-logo.className = 'logoCLS';
-logo.src = './images/logo.jpg';
+// const logo = document.createElement('img');
+// header_con.appendChild(logo);
+// logo.className = 'logoCLS';
+// logo.src = './images/logo.jpg';
 
-/////////////img_con///////////////////////////////////
+// /////////////img_con///////////////////////////////////
 
-const img_con = document.createElement('div');
-document.body.appendChild(img_con);
-img_con.className = 'img_con';
+// const img_con = document.createElement('div');
+// document.body.appendChild(img_con);
+// img_con.className = 'img_con';
 
-const picGrid = document.createElement('div');
-img_con.appendChild(picGrid)
-picGrid.className ='picGrid'
+// const picGrid = document.createElement('div');
+// img_con.appendChild(picGrid)
+// picGrid.className ='picGrid'
 
-const pic1 = document.createElement('img');
-picGrid.appendChild(pic1);
-pic1.className = 'picGrid-item';
-pic1.src = './images/one.jpg';
+// const pic1 = document.createElement('img');
+// picGrid.appendChild(pic1);
+// pic1.className = 'picGrid-item';
+// pic1.src = './images/one.jpg';
 
-const pic2 = document.createElement('img');
-picGrid.appendChild(pic2);
-pic2.className = 'picGrid-item';
-pic2.src = './images/two.jpg';
+// const pic2 = document.createElement('img');
+// picGrid.appendChild(pic2);
+// pic2.className = 'picGrid-item';
+// pic2.src = './images/two.jpg';
 
-const pic3 = document.createElement('img');
-picGrid.appendChild(pic3);
-pic3.className = 'picGrid-item';
-pic3.src = './images/three.jpg';
+// const pic3 = document.createElement('img');
+// picGrid.appendChild(pic3);
+// pic3.className = 'picGrid-item';
+// pic3.src = './images/three.jpg';
 
-const pic4 = document.createElement('img');
-picGrid.appendChild(pic4);
-pic4.className = 'picGrid-item';
-pic4.src = './images/four.jpg';
+// const pic4 = document.createElement('img');
+// picGrid.appendChild(pic4);
+// pic4.className = 'picGrid-item';
+// pic4.src = './images/four.jpg';
 
-const pic5 = document.createElement('img');
-picGrid.appendChild(pic5);
-pic5.className = 'picGrid-item';
-pic5.src = './images/five.jpg';
+// const pic5 = document.createElement('img');
+// picGrid.appendChild(pic5);
+// pic5.className = 'picGrid-item';
+// pic5.src = './images/five.jpg';
 
 //CRUD functions//
 

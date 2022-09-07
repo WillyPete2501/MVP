@@ -1,11 +1,14 @@
-* {
+html {
+    background: url(./images/wp7769153.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   .log_conCLS {
-    background-image: linear-gradient(to bottom right, red, yellow);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,7 +25,6 @@
   }
   
   .menu_con {
-    background-image: linear-gradient(to bottom right, rgb(0, 128, 255), rgb(0, 251, 255));
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -43,7 +45,6 @@
   }
 
   .submission_con {
-    background-image: linear-gradient(to bottom right, red, yellow);
     display: flex;
     justify-content: space-around;
     padding: 1.3em;
@@ -56,43 +57,4 @@
     width: 900px;
     padding: 1.3em;
     justify-content: center;
-  }
-
-  .header_con{
-    background-image: linear-gradient(to bottom right, rgb(0, 128, 255), rgb(0, 251, 255));
-    color: #5995DA;
-    display: flex;
-    justify-content: center;
-  }
-
-  .logoCLS {
-    align-items: center;
-    border: 1px solid aliceblue;
-    display: flex;
-    justify-content: center;
-    height: 200px;
-    width: 200px;
-  }
-
-  .img_con {
-    align-items: center;
-    background-image: linear-gradient(to bottom right, red, yellow);
-    color: #5995DA;
-    display: flex;
-    justify-content: center;
-  }
-
-  .picGrid {
-    align-items: center;
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 900px;
-  }
-
-  .picGrid-item {
-    border: 1px solid #fff;
-    height: 300px;
-    width: 300px;
   }
