@@ -1,4 +1,4 @@
-///////////Log_con/////////////////////////////////
+//Log_con/////////////////////////////////
 const log_con = document.createElement('div');
 log_con.className = 'log_conCLS';
 document.body.appendChild(log_con);
@@ -67,7 +67,7 @@ exID.id = 'exID';
 exID.placeholder = 'Use to Get 1/Delete/Update';
 exM4.maxLength = 15;
 
-////////////////Menu_con//////////////////////////////////
+//Menu_con////////////////////////////
 
 const menu_con = document.createElement('div');
 menu_con.className = 'menu_con'
@@ -112,7 +112,7 @@ btn5.id = 'btn5ID';
 btn5.className = 'btn';
 btn5.value = 'Update an Exercise';
 
-/////////////Submission_con/////////////////////////////////
+//Submission_con////////////////////////////
 
 const submission_con = document.createElement('div');
 submission_con.className = 'submission_con';
@@ -123,75 +123,35 @@ submission_con.appendChild(userInfo)
 userInfo.className = 'userInfoCLS';
 userInfo.id = 'userInfoID';
 
-////////////Header_con/////////////////////////////////
-
-// header_con = document.createElement('div');
-// document.body.appendChild(header_con);
-// header_con.className = 'header_con'
-
-// const logo = document.createElement('img');
-// header_con.appendChild(logo);
-// logo.className = 'logoCLS';
-// logo.src = './images/logo.jpg';
-
-// /////////////img_con///////////////////////////////////
-
-// const img_con = document.createElement('div');
-// document.body.appendChild(img_con);
-// img_con.className = 'img_con';
-
-// const picGrid = document.createElement('div');
-// img_con.appendChild(picGrid)
-// picGrid.className ='picGrid'
-
-// const pic1 = document.createElement('img');
-// picGrid.appendChild(pic1);
-// pic1.className = 'picGrid-item';
-// pic1.src = './images/one.jpg';
-
-// const pic2 = document.createElement('img');
-// picGrid.appendChild(pic2);
-// pic2.className = 'picGrid-item';
-// pic2.src = './images/two.jpg';
-
-// const pic3 = document.createElement('img');
-// picGrid.appendChild(pic3);
-// pic3.className = 'picGrid-item';
-// pic3.src = './images/three.jpg';
-
-// const pic4 = document.createElement('img');
-// picGrid.appendChild(pic4);
-// pic4.className = 'picGrid-item';
-// pic4.src = './images/four.jpg';
-
-// const pic5 = document.createElement('img');
-// picGrid.appendChild(pic5);
-// pic5.className = 'picGrid-item';
-// pic5.src = './images/five.jpg';
-
 //CRUD functions//
 
-//Get All/////////////////////////////////////////////////////////
+//Get All////////////////////////////////////////////////
 btn2.addEventListener('click', getAll);
 
 async function getAll() {
     const response = await fetch('http://localhost:3003/users');
     const commits = await response.json()
-    console.log(commits)
-    userInfo.innerHTML = JSON.stringify(commits)
+    for (let i = 0; i < commits.length; i++) {
+        let current = commits[i];
+        console.log(current);
+        userInfo.innerHTML = `Log ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
+    }
 };
 
-//Get One/////////////////////////////////////////////////////////////
+//Get One/////////////////////////////////////////////////
 btn3.addEventListener('click', getOne);
 
 async function getOne() {
     const response = await fetch(`http://localhost:3003/users/${exID.value}`);
     const commits = await response.json();
-    console.log(commits[0]);
-    userInfo.innerHTML = 'Got Exercise: ' + JSON.stringify(commits);
+    for (let i = 0; i < commits.length; i++) {
+        let current = commits[i];
+        console.log(current);
+        userInfo.innerHTML = `Log ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
+    }
 };
 
-//Delete One////////////////////////////////////////////////////////
+//Delete One///////////////////////////////////////////
 btn4.addEventListener('click', deleteOne);
 
 async function deleteOne() {
@@ -203,7 +163,7 @@ async function deleteOne() {
         })
 };
 
-//Patch One//////////////////////////////////////////////////////////////
+//Patch One////////////////////////////////////////////
 btn5.addEventListener('click', patchEx);
 
 async function patchEx () {
@@ -225,7 +185,7 @@ async function patchEx () {
 }).then(response => response.json()).then(json => console.log(json));
 };
 
-//Post One////////////////////////////////////////////////////////////////
+//Post One///////////////////////////////////////////
 btn1.addEventListener('click', userInfoDisplay);
 
 function userInfoDisplay() {
@@ -251,7 +211,7 @@ function postExrs() {
     }),
 }).then(response => response.json()).then(json => console.log(json));
 };
-////////////////////Testing///////////////////////////
+//Testing///////////////////////////
 
 
 
@@ -259,7 +219,7 @@ function postExrs() {
 
 
 
-///////////////////Testing////////////////////////////
+//Testing////////////////////////////
 
 
 console.log('main.js check');
