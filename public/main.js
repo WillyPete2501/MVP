@@ -186,9 +186,9 @@ btn3.addEventListener('click', getOne);
 
 async function getOne() {
     const response = await fetch(`http://localhost:3003/users/${exID.value}`);
-    const commits = await response.json()
-    console.log(commits[0])
-    userInfo.innerHTML = JSON.stringify(commits)
+    const commits = await response.json();
+    console.log(commits[0]);
+    userInfo.innerHTML = 'Got Exercise: ' + JSON.stringify(commits);
 };
 
 //Delete One////////////////////////////////////////////////////////

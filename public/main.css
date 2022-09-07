@@ -5,47 +5,45 @@
   }
 
   .log_conCLS {
-    background-color: #fbfb1d;
-    color: rgb(248, 122, 110);
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
-  }
-
-  .log {
-    border: 1px solid rgb(94, 255, 20);
+    background-image: linear-gradient(to bottom right, red, yellow);
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-    padding: 1.3em;
     justify-content: center;
+    padding: 1.3em;
+  }
+
+  .logCLS {
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    padding: 1em;
+    justify-content: space-between;
   }
   
   .menu_con {
-    background-color: #fb5400;
+    background-image: linear-gradient(to bottom right, rgb(0, 128, 255), rgb(0, 251, 255));
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 1.3em;
    
   }
 
   .menu {
-    border: 1px solid rgb(94, 255, 20);
+    border: 1px solid rgb(0, 0, 0);
     display: flex;
-    flex-wrap: wrap;
-    width: 800px;
+    width: 900px;
     padding: 1em;
     justify-content: space-evenly;
   }
 
   .btn {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1.3em;
+    padding: 0.5em;
   }
 
   .submission_con {
-    background-color: #fb5400;
+    background-image: linear-gradient(to bottom right, red, yellow);
     display: flex;
     justify-content: space-around;
     padding: 1.3em;
@@ -53,15 +51,15 @@
   }
 
   .userInfoCLS {
-    border: 1px solid rgb(94, 255, 20);
+    border: 1px solid rgb(0, 0, 0);
     display: flex;
-    width: 800px;
+    width: 900px;
     padding: 1.3em;
     justify-content: center;
   }
 
   .header_con{
-    background-color: #0e76ed;
+    background-image: linear-gradient(to bottom right, rgb(0, 128, 255), rgb(0, 251, 255));
     color: #5995DA;
     display: flex;
     justify-content: center;
@@ -72,13 +70,13 @@
     border: 1px solid aliceblue;
     display: flex;
     justify-content: center;
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
   }
 
   .img_con {
     align-items: center;
-    background-color: #0e76ed;
+    background-image: linear-gradient(to bottom right, red, yellow);
     color: #5995DA;
     display: flex;
     justify-content: center;
@@ -87,7 +85,7 @@
   .picGrid {
     align-items: center;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     justify-content: center;
     width: 900px;
