@@ -16,17 +16,16 @@
     border: 1px solid rgb(94, 255, 20);
     display: flex;
     flex-wrap: wrap;
-    width: 750px;
+    width: 800px;
     padding: 1.3em;
     justify-content: center;
   }
   
   .menu_con {
     background-color: #fb5400;
-    color: #fff;
     display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
+    justify-content: space-evenly;
+    padding: 1.3em;
    
   }
 
@@ -34,24 +33,29 @@
     border: 1px solid rgb(94, 255, 20);
     display: flex;
     flex-wrap: wrap;
-    width: 750px;
+    width: 800px;
+    padding: 1em;
+    justify-content: space-evenly;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: space-evenly;
     padding: 1.3em;
-    justify-content: center;
   }
 
   .submission_con {
     background-color: #fb5400;
-    color: #fff;
     display: flex;
     justify-content: space-around;
-    padding: 20px 0;
+    padding: 1.3em;
    
   }
 
   .userInfoCLS {
     border: 1px solid rgb(94, 255, 20);
     display: flex;
-    width: 750px;
+    width: 800px;
     padding: 1.3em;
     justify-content: center;
   }

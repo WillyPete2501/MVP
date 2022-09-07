@@ -60,6 +60,13 @@ exM4.id = 'exM4ID';
 exM4.placeholder = 'Enter exercise 4th metric';
 exM4.maxLength = 15;
 
+const exID = document.createElement('input');
+log.appendChild(exID);
+exID.type = 'text';
+exID.id = 'exID';
+exID.placeholder = 'Use to Get 1/Delete/Update';
+exM4.maxLength = 15;
+
 ////////////////Menu_con//////////////////////////////////
 
 const menu_con = document.createElement('div');
@@ -75,20 +82,35 @@ menu.appendChild(btn1);
 btn1.type = 'button';
 btn1.id = 'btn1ID';
 btn1.className = 'btn'
-btn1.value = 'Post';
+btn1.value = 'Post Exercise';
 
 const btn2 = document.createElement('input');
 menu.appendChild(btn2);
 btn2.type = 'button';
 btn2.id = 'btn2ID';
 btn2.className = 'btn';
-btn2.value = 'Get all exercises';
+btn2.value = 'Get all Exercises';
 
 const btn3 = document.createElement('input');
 menu.appendChild(btn3)
 btn3.type = 'button';
 btn3.id = 'btn3ID';
 btn3.className = 'btn';
+btn3.value = 'Get 1 Exercise';
+
+const btn4 = document.createElement('input');
+menu.appendChild(btn4);
+btn4.type = 'button';
+btn4.id = 'btn4ID';
+btn4.className = 'btn';
+btn4.value = 'Delete an Exercise';
+
+const btn5 = document.createElement('input');
+menu.appendChild(btn5);
+btn5.type = 'button';
+btn5.id = 'btn5ID';
+btn5.className = 'btn';
+btn5.value = 'Update an Exercise';
 
 /////////////Submission_con/////////////////////////////////
 
@@ -112,7 +134,7 @@ header_con.appendChild(logo);
 logo.className = 'logoCLS';
 logo.src = './images/logo.jpg';
 
-/////////////img_con
+/////////////img_con///////////////////////////////////
 
 const img_con = document.createElement('div');
 document.body.appendChild(img_con);
@@ -147,28 +169,63 @@ picGrid.appendChild(pic5);
 pic5.className = 'picGrid-item';
 pic5.src = './images/five.jpg';
 
-//CRUD functions///////////////////////////////////////////////
+//CRUD functions//
 
-//Get All
-btn2.addEventListener('click', async (e) => {
+//Get All/////////////////////////////////////////////////////////
+btn2.addEventListener('click', getAll);
+
+async function getAll() {
     const response = await fetch('http://localhost:3003/users');
     const commits = await response.json()
     console.log(commits)
     userInfo.innerHTML = JSON.stringify(commits)
-})
+};
 
-//Get One
+//Get One/////////////////////////////////////////////////////////////
 btn3.addEventListener('click', getOne);
 
-function getOne() {
+async function getOne() {
+    const response = await fetch(`http://localhost:3003/users/${exID.value}`);
+    const commits = await response.json()
+    console.log(commits[0])
+    userInfo.innerHTML = JSON.stringify(commits)
+};
 
-}
+//Delete One////////////////////////////////////////////////////////
+btn4.addEventListener('click', deleteOne);
 
-//Delete One
+async function deleteOne() {
+    fetch(`http://localhost:3003/users/${exID.value}`, { 
+        method: "DELETE",
+        headers: {
+                "Content-type": "application/json;charset=UTF-8"
+            }
+        })
+};
 
-//Patch One
+//Patch One//////////////////////////////////////////////////////////////
+btn5.addEventListener('click', patchEx);
 
-//Post One
+async function patchEx () {
+    fetch(`http://localhost:3003/users/${exID.value}`, { 
+    method: "PATCH",
+    headers: {
+            "Content-type": "application/json;charset=UTF-8"
+        },
+    body: JSON.stringify({
+        "height_inches": `${height.value}`,
+        "weight_lbs": `${weight.value}`,
+        "age": `${age.value}`,
+        "exercise": `${exrs.value}`,
+        "metric1":  `${exM1.value}`,
+        "metric2": `${exM2.value}`,
+        "metric3": `${exM3.value}`,
+        "metric4": `${exM4.value}`
+    }),
+}).then(response => response.json()).then(json => console.log(json));
+};
+
+//Post One////////////////////////////////////////////////////////////////
 btn1.addEventListener('click', userInfoDisplay);
 
 function userInfoDisplay() {
@@ -193,17 +250,13 @@ function postExrs() {
         "metric4": `${exM4.value}`
     }),
 }).then(response => response.json()).then(json => console.log(json));
-}
+};
 ////////////////////Testing///////////////////////////
 
 
 
 
-// const btn4 = document.createElement('input');
-// userInfo.appendChild(btn4);
-// btn4.type = 'button';
-// btn4.id = 'btn4ID';
-// btn4.value = 'Post';
+
 
 
 ///////////////////Testing////////////////////////////
