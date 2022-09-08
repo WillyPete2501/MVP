@@ -138,7 +138,6 @@ userInfo.id = 'userInfoID';
 btn2.addEventListener('click', getAll);
 
 async function getAll() {
-    
     userInfo.textContent = '';
     const response = await fetch('http://localhost:3003/users');
     const commits = await response.json()
@@ -179,6 +178,7 @@ async function deleteOne() {
         }
     })
     alert(`You Deleted exercise ID: ${exID.value}`);
+    userInfo.textContent = '';
     getAll();
     exID.value = '';
 };
@@ -204,7 +204,7 @@ async function patchEx () {
         }),
     }).then(response => response.json()).then(json => console.log(json));
     alert(`You Updated exercise ID ${exID.value}`);
-    getAll();
+    getOne();
     exID.value = '';
 };
 
