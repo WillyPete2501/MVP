@@ -21,10 +21,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     font-family: 'Rubik', sans-serif;
-    font-size: 0.8em;
-    justify-content: space-between;
-    padding: 1em;
-    width: 900px;
+    font-size: 0.65em;
+    padding: 0.6em;
   }
   
   .menu_con {
@@ -45,6 +43,12 @@ html {
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
     padding: 0.3em;
+  }
+
+  .btn:hover {
+    background-color: rgb(1, 129, 129);
+    color:rgb(255, 255, 255);
+    opacity: 100%;
   }
 
   .submission_con {

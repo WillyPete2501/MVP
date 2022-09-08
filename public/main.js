@@ -12,24 +12,28 @@ const height = document.createElement('input');
 log.appendChild(height);
 height.type = 'number';
 height.id = 'heightID';
+height.className = 'logCLS';
 height.placeholder = 'Enter height';
 
 const weight = document.createElement('input');
 log.appendChild(weight);
 weight.type = 'number';
 weight.id = 'weightID';
+weight.className = 'logCLS';
 weight.placeholder = 'Enter weight';
 
 const age = document.createElement('input');
 log.appendChild(age);
 age.type = 'number';
 age.id = 'ageID';
+age.className = 'logCLS';
 age.placeholder = 'Enter age';
 
 const exrs = document.createElement('input');
 log.appendChild(exrs);
 exrs.type = 'text';
 exrs.id = 'exrsID';
+exrs.className = 'logCLS';
 exrs.placeholder = 'Enter exercise';
 exrs.maxLength = 20;
 
@@ -37,6 +41,7 @@ const exM1 = document.createElement('input');
 log.appendChild(exM1);
 exM1.type = 'text';
 exM1.id = 'exM1ID';
+exM1.className = 'logCLS';
 exM1.placeholder = 'Enter exercise metric';
 exM1.maxLength = 15;
 
@@ -44,6 +49,7 @@ const exM2 = document.createElement('input');
 log.appendChild(exM2);
 exM2.type = 'text';
 exM2.id = 'exM2ID';
+exM2.className = 'logCLS';
 exM2.placeholder = 'Enter exercise 2nd metric';
 exM2.maxLength = 15;
 
@@ -51,6 +57,7 @@ const exM3 = document.createElement('input');
 log.appendChild(exM3);
 exM3.type = 'text';
 exM3.id = 'exM3ID';
+exM3.className = 'logCLS';
 exM3.placeholder = 'Enter exercise 3rd metric';
 exM3.maxLength = 15;
 
@@ -58,6 +65,7 @@ const exM4 = document.createElement('input');
 log.appendChild(exM4);
 exM4.type = 'text';
 exM4.id = 'exM4ID';
+exM4.className = 'logCLS';
 exM4.placeholder = 'Enter exercise 4th metric';
 exM4.maxLength = 15;
 
@@ -65,6 +73,7 @@ const exID = document.createElement('input');
 log.appendChild(exID);
 exID.type = 'text';
 exID.id = 'exID';
+exID.className = 'logCLS';
 exID.placeholder = 'Use ID to Get/Delete/Update';
 exM4.maxLength = 15;
 
@@ -129,6 +138,7 @@ userInfo.id = 'userInfoID';
 btn2.addEventListener('click', getAll);
 
 async function getAll() {
+    
     userInfo.textContent = '';
     const response = await fetch('http://localhost:3003/users');
     const commits = await response.json()
