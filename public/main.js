@@ -1,11 +1,12 @@
 //Log_con/////////////////////////////////
 const log_con = document.createElement('div');
-log_con.className = 'log_conCLS';
 document.body.appendChild(log_con);
+log_con.className = 'log_conCLS';
+log_con.textContent = 'Workout Tracker';
 
 const log = document.createElement('div');
-log.className = 'logCLS';
 log_con.appendChild(log);
+log.className = 'logCLS';
 
 const height = document.createElement('input');
 log.appendChild(height);
@@ -64,18 +65,17 @@ const exID = document.createElement('input');
 log.appendChild(exID);
 exID.type = 'text';
 exID.id = 'exID';
-exID.placeholder = 'Use to Get 1/Delete/Update';
+exID.placeholder = 'Use ID to Get/Delete/Update';
 exM4.maxLength = 15;
 
 //Menu_con////////////////////////////
-
 const menu_con = document.createElement('div');
-menu_con.className = 'menu_con'
 document.body.appendChild(menu_con);
+menu_con.className = 'menu_con';
 
 const menu = document.createElement('div');
-menu.className = 'menu';
 menu_con.appendChild(menu);
+menu.className = 'menu';
 
 const btn1 = document.createElement('input');
 menu.appendChild(btn1);
@@ -89,14 +89,14 @@ menu.appendChild(btn2);
 btn2.type = 'button';
 btn2.id = 'btn2ID';
 btn2.className = 'btn';
-btn2.value = 'Get all Exercises';
+btn2.value = 'Show all Exercises';
 
 const btn3 = document.createElement('input');
 menu.appendChild(btn3)
 btn3.type = 'button';
 btn3.id = 'btn3ID';
 btn3.className = 'btn';
-btn3.value = 'Get 1 Exercise';
+btn3.value = 'Get an Exercise';
 
 const btn4 = document.createElement('input');
 menu.appendChild(btn4);
@@ -113,10 +113,10 @@ btn5.className = 'btn';
 btn5.value = 'Update an Exercise';
 
 //Submission_con////////////////////////////
-
 const submission_con = document.createElement('div');
-submission_con.className = 'submission_con';
 document.body.appendChild(submission_con);
+submission_con.className = 'submission_con';
+submission_con.id = 'submission_conID'
 
 const userInfo = document.createElement('div');
 submission_con.appendChild(userInfo)
@@ -129,14 +129,22 @@ userInfo.id = 'userInfoID';
 btn2.addEventListener('click', getAll);
 
 async function getAll() {
+    userInfo.textContent = '';
     const response = await fetch('http://localhost:3003/users');
     const commits = await response.json()
     for (let i = 0; i < commits.length; i++) {
         let current = commits[i];
-        console.log(current);
-        userInfo.innerHTML = `Log ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
+        //console.log(current);
+        displayAll(current);
     }
 };
+
+async function displayAll(current) {
+    const allLogs = document.createElement('div');
+    userInfo.appendChild(allLogs);
+    allLogs.innerHTML = `ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
+    //console.log('displayAll check');
+}
 
 //Get One/////////////////////////////////////////////////
 btn3.addEventListener('click', getOne);
@@ -146,8 +154,7 @@ async function getOne() {
     const commits = await response.json();
     for (let i = 0; i < commits.length; i++) {
         let current = commits[i];
-        console.log(current);
-        userInfo.innerHTML = `Log ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
+        userInfo.innerHTML = `ID: ${current.log_id} Exercise ${current.exercise} Metric 1: ${current.metric1} Metric 2: ${current.metric2} Metric 3: ${current.metric3} Metric 4: ${current.metric4} Age: ${current.age} Height: ${current.height_inches} Weight: ${current.weight_lbs}`;
     }
 };
 
@@ -158,9 +165,12 @@ async function deleteOne() {
     fetch(`http://localhost:3003/users/${exID.value}`, { 
         method: "DELETE",
         headers: {
-                "Content-type": "application/json;charset=UTF-8"
-            }
-        })
+            "Content-type": "application/json;charset=UTF-8"
+        }
+    })
+    alert(`You Deleted exercise ID: ${exID.value}`);
+    getAll();
+    exID.value = '';
 };
 
 //Patch One////////////////////////////////////////////
@@ -168,21 +178,24 @@ btn5.addEventListener('click', patchEx);
 
 async function patchEx () {
     fetch(`http://localhost:3003/users/${exID.value}`, { 
-    method: "PATCH",
-    headers: {
+        method: "PATCH",
+        headers: {
             "Content-type": "application/json;charset=UTF-8"
         },
-    body: JSON.stringify({
-        "height_inches": `${height.value}`,
-        "weight_lbs": `${weight.value}`,
-        "age": `${age.value}`,
-        "exercise": `${exrs.value}`,
-        "metric1":  `${exM1.value}`,
-        "metric2": `${exM2.value}`,
-        "metric3": `${exM3.value}`,
-        "metric4": `${exM4.value}`
-    }),
-}).then(response => response.json()).then(json => console.log(json));
+        body: JSON.stringify({
+            "height_inches": `${height.value}`,
+            "weight_lbs": `${weight.value}`,
+            "age": `${age.value}`,
+            "exercise": `${exrs.value}`,
+            "metric1":  `${exM1.value}`,
+            "metric2": `${exM2.value}`,
+            "metric3": `${exM3.value}`,
+            "metric4": `${exM4.value}`
+        }),
+    }).then(response => response.json()).then(json => console.log(json));
+    alert(`You Updated exercise ID ${exID.value}`);
+    getAll();
+    exID.value = '';
 };
 
 //Post One///////////////////////////////////////////
@@ -195,31 +208,21 @@ function userInfoDisplay() {
 
 function postExrs() {
     fetch('http://localhost:3003/users', { 
-    method: "POST",
-    headers: {
+        method: "POST",
+        headers: {
             "Content-type": "application/json;charset=UTF-8"
         },
-    body: JSON.stringify({
-        "height_inches": `${height.value}`,
-        "weight_lbs": `${weight.value}`,
-        "age": `${age.value}`,
-        "exercise": `${exrs.value}`,
-        "metric1":  `${exM1.value}`,
-        "metric2": `${exM2.value}`,
-        "metric3": `${exM3.value}`,
-        "metric4": `${exM4.value}`
-    }),
-}).then(response => response.json()).then(json => console.log(json));
+        body: JSON.stringify({
+            "height_inches": `${height.value}`,
+            "weight_lbs": `${weight.value}`,
+            "age": `${age.value}`,
+            "exercise": `${exrs.value}`,
+            "metric1":  `${exM1.value}`,
+            "metric2": `${exM2.value}`,
+            "metric3": `${exM3.value}`,
+            "metric4": `${exM4.value}`
+        }),
+    }).then(response => response.json()).then(json => console.log(json));
 };
-//Testing///////////////////////////
-
-
-
-
-
-
-
-//Testing////////////////////////////
-
 
 console.log('main.js check');

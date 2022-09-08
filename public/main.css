@@ -1,27 +1,30 @@
 html {
     background: url(./images/wp7769153.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
   }
 
   .log_conCLS {
     display: flex;
     flex-wrap: wrap;
+    font-family: 'Rubik', sans-serif;
+    font-size: 2em;
     justify-content: center;
     padding: 1.3em;
   }
 
   .logCLS {
-    border: 1px solid rgb(0, 0, 0);
     display: flex;
     flex-wrap: wrap;
-    width: 900px;
-    padding: 1em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.8em;
     justify-content: space-between;
+    padding: 1em;
+    width: 900px;
   }
   
   .menu_con {
@@ -29,37 +32,35 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     padding: 1.3em;
-   
   }
 
   .menu {
-    border: 1px solid rgb(0, 0, 0);
     display: flex;
-    width: 900px;
-    padding: 1em;
     justify-content: space-evenly;
+    padding: 1em;
+    width: 900px;
   }
 
   .btn {
-    padding: 0.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1em;
+    padding: 0.3em;
   }
 
   .submission_con {
     display: flex;
     justify-content: space-around;
     padding: 1.3em;
-   
   }
 
   .userInfoCLS {
-    background: rgba(0, 151, 133, 0.696);
-    border: 1px solid rgb(0, 0, 0);
+    background: rgba(0, 151, 133, 0.694);
     color: rgb(250, 250, 250);
     display: flex;
     flex-wrap: wrap;
     font-family: 'Rubik', sans-serif;
-    font-size: 1em;
-    width: 900px;
-    padding: 1.3em;
+    font-size: 1.1em;
     justify-content: center;
+    padding: 1.3em;
+    width: 660px;
   }
